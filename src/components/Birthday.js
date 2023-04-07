@@ -150,7 +150,6 @@ function Birthday(props) {
             Must be a valid year since 1900
         </p>
         <p className={!props.isPast.year
-                        && props.regexResult.year 
                         && !props.isEmpty.year
                         && props.isValid
                           ? "error--state"
