@@ -1,38 +1,219 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  transition: ease all 1s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --dark-purple: hsl(259, 50%, 42%);
+  --purple: hsl(259, 100%, 65%);
+  --light-red: hsl(0, 100%, 67%);
+  --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 94%);
+  --light-grey: hsl(0, 0%, 86%);
+  --smokey-grey: hsl(0, 1%, 44%);
+  --off-black: hsl(0, 0%, 8%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
   min-height: 100vh;
+  overflow: hidden;
+  color: var(--off-black);
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--off-white);
+}
+
+.App {
+  width: 80%;
+  max-width: 650px;
+  min-width: 370px;
+  margin: 100px auto;
+  border-radius: 5% 5% 25% 5%;
+  background-color: var(--white);
+  padding: 50px 30px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.birthday--container {
+  width: 100%;
+  height: 110px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 15px;
 }
 
-.App-link {
-  color: #61dafb;
+.birthday--container-small {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.birthday--label {
+  color: var(--smokey-grey);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  width: 100%;
+  padding-bottom: 4px;
+}
+
+.birthday--number {
+  width: 100%;
+  height: 50px;
+  padding-left: 12px;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+  color: var(--off-black);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.birthday--number:hover {
+  cursor: pointer;
+}
+
+.birthday--number:focus {
+  cursor: pointer;
+  border: 1px solid var(--purple);
+  outline: none;
+}
+
+.birthday--number::placeholder {
+  color: var(--smokey-grey);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.error--label {
+  color: var(--light-red);
+}
+
+.error--border {
+  border: 1px solid var(--light-red);
+}
+
+.error--state-hidden {
+  display: none;
+}
+
+.error--state {
+  font-size: 10px;
+  font-style: italic;
+  color: var(--light-red);
+  padding-top: 5px;
+}
+
+.divider {
+  width: 94%;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 0;
+  margin-bottom: 15px;
+}
+
+.divider--line {
+  border-top: 1px solid var(--light-grey);
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.divider--arrow {
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--purple);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+}
+
+.divider--arrow:hover {
+  cursor: pointer;
+  background-color: var(--off-black);
+  transform: scale(1.1);
+}
+
+.divider--arrow:active {
+  cursor: pointer;
+  background-color: var(--dark-purple);
+}
+
+.divider--arrow-icon {
+  width: 25px;
+}
+
+.age--container {
+  width: 94%;
+}
+
+.age {
+  font-size: 52px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.age--number {
+  color: var(--purple);
+  animation-name: show;
+}
+
+@media (min-width: 800px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App {
+    padding: 45px;
+    align-items: flex-start;
+  }
+
+  .birthday--container {
+    width: 80%;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .birthday--container-small {
+    width: 25%;
+  }
+
+  .error--state {
+    font-size: 11px;
+  }
+
+  .divider {
+    width: 98%;
+    align-items: flex-end;
+  }
+
+  .divider--arrow {
+    width: 75px;
+    height: 75px;
+  }
+
+  .divider--arrow-icon {
+    width: 35px;
+  }
+
+  .age {
+    font-size: 72px;
   }
 }
