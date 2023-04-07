@@ -70,8 +70,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [here](https://www.frontendmentor.io/solutions/)
-- Live Site URL: [here](https://zun-liang.github.io/interactive-card-details-form-main/)
+- Solution URL: [here](https://www.frontendmentor.io/solutions/age-calculator-app-using-reactjs-html-and-css-1jcX9QXLEG)
+- Live Site URL: [here](https://zun-liang.github.io/age-calculator-app/)
 
 ## My process
 
