@@ -1,43 +1,40 @@
-import { useState } from "react";
-import Birthday from "./components/Birthday";
-import Age from "./components/Age";
-import './App.css';
-import ArrowIcon from "../src/images/icon-arrow.svg";
+import { useState } from "react"
+import Birthday from "./components/Birthday"
+import Age from "./components/Age"
+import './App.css'
+import ArrowIcon from "../src/images/icon-arrow.svg"
 
-function App() {
+const App = () => {
   const [birthday, setBirthday] = useState({
     day: "",
     month: "",
     year: ""
   })
 
-  const current = new Date();
+  const current = new Date()
   const [currentDay, currentMonth, currentYear] = [
     current.getDate(), 
     current.getMonth() + 1, 
     current.getFullYear()
-  ];
+  ]
 
-  const birthDay = Number(birthday.day);
-  const birthMonth = Number(birthday.month);
-  const birthYear =  Number(birthday.year);
+  const birthDay = Number(birthday.day)
+  const birthMonth = Number(birthday.month)
+  const birthYear =  Number(birthday.year)
 
-  function isLeapYear() {
-    if (birthYear % 400 === 0) {
-      return true;
-    } else if (birthYear % 4 === 0 && birthYear % 100 !== 0) {
-      return true;
-    } 
-    return false;
-  }
+  const isLeapYear = () => 
+    birthYear % 400 === 0 
+      ? true
+      : birthYear % 4 === 0 && birthYear % 100 !== 0
+      ? true
+      : false
+  
 
-  function hasThirtyDays() {
-    if (birthMonth === 4 || birthMonth === 6 
-        || birthMonth === 9 || birthMonth === 11) {
-      return true;
-    }
-    return false;
-  }
+  const hasThirtyDays = () => 
+    birthMonth === 4 || birthMonth === 6 
+      || birthMonth === 9 || birthMonth === 11
+      ? true
+      : false
 
   const ageYear = 
     currentMonth > birthMonth 
@@ -46,7 +43,7 @@ function App() {
       ? currentYear - birthYear - 1
       : currentDay >= birthDay
       ? currentYear - birthYear
-      : currentYear - birthYear - 1;
+      : currentYear - birthYear - 1
 
   const ageMonth = 
     currentMonth > birthMonth && currentDay >= birthDay
@@ -59,7 +56,7 @@ function App() {
       ? 11 - (birthMonth - currentMonth)
       : currentMonth === birthMonth && currentDay < birthDay
       ? 11
-      : 0;
+      : 0
 
   const ageDay = 
     currentDay === birthDay
@@ -72,16 +69,16 @@ function App() {
       ? 31 - birthDay + currentDay
       : (birthMonth === 2) && (isLeapYear())
       ? 29 - birthDay + currentDay
-      : 28 - birthDay + currentDay;
+      : 28 - birthDay + currentDay
 
 
   const [age, setAge] = useState({
     day: "- -",
     month: "- -",
     year: "- -"
-  });
+  })
 
-  function handleAge() {
+  const handleAge = () => {
     setAge({
       day: ageDay,
       month: ageMonth,
@@ -93,9 +90,9 @@ function App() {
     day: false,
     month: false,
     year: false
-  });
+  })
 
-  function handleIsEmpty() {
+  const handleIsEmpty = () => {
     for (let property in birthday) {
       if (birthday[property].trim().length === 0) {
         setIsEmpty(prev => {
@@ -115,15 +112,15 @@ function App() {
     /* matches 1 to 12, with an optional leading zero */
     year: /^(19\d{2}|20[0-2]\d|2030)$/ 
     /* matches 1900 to 2030 */
-  };
+  }
 
   const [regexResult, setRegexResult] = useState({
     day: true,
     month: true,
     year: true
-  });
+  })
 
-  function handleRegexResult() {
+  const handleRegexResult = () => {
     for (let property in birthday) {
       if (!regex[property].test(birthday[property])) {
         setRegexResult(prev => {
@@ -140,9 +137,9 @@ function App() {
     day: true,
     month: true,
     year: true
-  });
+  })
 
-  function handleIsPast() {
+  const handleIsPast = () => {
     if (birthYear > currentYear) {
       setIsPast(prev => {
         return {
@@ -169,9 +166,9 @@ function App() {
     }
   }
   
-  const [isValid, setIsValid] = useState(true);
+  const [isValid, setIsValid] = useState(true)
 
-  function handleIsValid() {
+  const handleIsValid = () => {
     if (hasThirtyDays() 
         && birthDay > 30) {
       setIsValid(false)
@@ -188,8 +185,8 @@ function App() {
     }
   }
 
-  function handleChange(e) {
-    const {name, value} = e.target;
+  const handleChange = e => {
+    const {name, value} = e.target
     setBirthday(prev => {
       return {
         ...prev,
@@ -224,28 +221,28 @@ function App() {
     setIsValid(true)
   }
 
-  function testAll() {
+  const testAll = () => {
     for(let property in isEmpty) {
       if (isEmpty[property]) {
-        return false;
+        return false
       } else if (!regexResult[property]) {
-        return false;
+        return false
       } else if (!isPast[property]) {
-        return false;
+        return false
       } else if (!isValid) {
-        return false;
+        return false
       }
     } 
-    return true;
+    return true
   }
 
-  function handleClick() {
-    handleIsEmpty();
-    handleRegexResult();
-    handleIsPast();
-    handleIsValid();
-    testAll();
-    handleAge();
+  const handleClick = () => {
+    handleIsEmpty()
+    handleRegexResult()
+    handleIsPast()
+    handleIsValid()
+    testAll()
+    handleAge()
   }
 
   return (
@@ -275,10 +272,10 @@ function App() {
         age={age}
       />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
 
 // HOW TO CLACULATE AGE
   // AD = ageDay, AM = ageMonth, AY = ageYear

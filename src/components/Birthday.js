@@ -1,5 +1,4 @@
-function Birthday(props) {
-  return (
+const Birthday = props => 
     <div className="birthday--container">
         <div className="birthday--container-small">
         <label 
@@ -158,7 +157,5 @@ function Birthday(props) {
         </p>
         </div>
     </div>
-  )
-}
 
-export default Birthday;
+export default Birthday
