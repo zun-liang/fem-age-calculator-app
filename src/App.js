@@ -78,13 +78,12 @@ const App = () => {
     year: "- -"
   })
 
-  const handleAge = () => {
+  const handleAge = () => 
     setAge({
       day: ageDay,
       month: ageMonth,
       year: ageYear
     })
-  }
 
   const [isEmpty, setIsEmpty] = useState({
     day: false,
