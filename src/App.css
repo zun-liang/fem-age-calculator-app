@@ -2,7 +2,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  transition: ease all 1s;
 }
 
 :root {
@@ -16,19 +15,28 @@
   --off-black: hsl(0, 0%, 8%);
 }
 
-body {
+html, body, main {
+  width: 100vw;
+  height: 100%;
   min-height: 100vh;
-  overflow: hidden;
+}
+
+body {
   color: var(--off-black);
   font-family: 'Poppins', sans-serif;
   background-color: var(--off-white);
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
-  width: 80%;
-  max-width: 650px;
-  min-width: 370px;
-  margin: 100px auto;
+  width: 320px;
+  height: 80%;
+  margin: 0 auto;
   border-radius: 5% 5% 25% 5%;
   background-color: var(--white);
   padding: 50px 30px 40px;
@@ -39,7 +47,7 @@ body {
 
 .birthday--container {
   width: 100%;
-  height: 110px;
+  height: 100px;
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -112,7 +120,7 @@ body {
 
 .divider {
   width: 94%;
-  height: 70px;
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -162,7 +170,7 @@ body {
 }
 
 .age {
-  font-size: 52px;
+  font-size: 40px;
   font-style: italic;
   font-weight: 800;
   line-height: 1.1;
@@ -173,20 +181,51 @@ body {
   animation-name: show;
 }
 
-@media (min-width: 800px) {
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media (min-width: 400px) {
+  .App {
+    width: 350px;
   }
 
+  .age {
+    font-size: 45px;
+  }
+}
+
+@media (min-width: 500px) {
   .App {
+    width: 400px;
+  }
+
+  .age {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 600px) {
+  .App {
+    width: 500px;
+  }
+
+  .age {
+    font-size: 52px;
+  }
+}
+
+@media (min-width: 700px) {
+  .App {
+    width: 600px;
+  }
+}
+
+@media (min-width: 800px) {
+  .App {
+    width: 700px;
     padding: 45px;
     align-items: flex-start;
   }
 
   .birthday--container {
-    width: 80%;
+    width: 85%;
     justify-content: flex-start;
     gap: 20px;
   }
@@ -211,6 +250,10 @@ body {
 
   .divider--arrow-icon {
     width: 35px;
+  }
+
+  .age-container {
+    width: 100%;
   }
 
   .age {

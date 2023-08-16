@@ -1,28 +1,28 @@
 import CountUp from "react-countup"
 
-const Age = props => 
+const Age = ({ testAll, age }) => 
   <div className="age--container">
     <h1 className="age">
         <span className="age--number">
-        {props.testAll === true 
-          && props.age.year !== "- -"
-                ? <CountUp end={props.age.year}/>
+        {testAll === true 
+          && age.year !== "- -"
+                ? <CountUp end={age.year}/>
                 : "- -"}
         </span> years
     </h1>
     <h2 className="age">
         <span className="age--number">
-        {props.testAll === true 
-          && props.age.month !== "- -"
-                ? <CountUp end={props.age.month}/>
+        {testAll === true 
+          && age.month !== "- -"
+                ? <CountUp end={age.month}/>
                 : "- -"}
         </span> months
         </h2>
     <h2 className="age">
         <span className="age--number">
-        {props.testAll === true 
-          && props.age.day !== "- -"
-                ? <CountUp end={props.age.day}/>
+        {testAll === true 
+          && age.day !== "- -"
+                ? <CountUp end={age.day}/>
                 : "- -"}
         </span> days
     </h2>

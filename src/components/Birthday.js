@@ -1,57 +1,60 @@
-const Birthday = props => 
+const Birthday = ({ birthday, handleChange, isEmpty, regexResult, isPast, isValid }) => 
     <div className="birthday--container">
         <div className="birthday--container-small">
         <label 
             htmlFor="day" 
             className={`birthday--label 
-                        ${props.isEmpty.day 
-                          || !props.regexResult.day
-                          || !props.isPast.day
-                          || !props.isValid
+                        ${isEmpty.day 
+                        || !regexResult.day
+                        || !isPast.day
+                        || !isValid
                             ? "error--label"
                             : ""}`}>
             Day
         </label>
         <input 
-            type="text" 
+            type="number"
+            min="1"
+            max="31"
+            step="1"
             id="day" 
             name="day"
             placeholder="DD" 
-            value={props.birthday.day} 
-            onChange={props.handleChange}
+            value={birthday.day} 
+            onChange={handleChange}
             className={`birthday--number 
-                        ${props.isEmpty.day 
-                            || !props.regexResult.day
-                            || !props.isPast.day
-                            || !props.isValid
-                              ? "error--border"
-                              : ""}`}
+                        ${isEmpty.day 
+                            || !regexResult.day
+                            || !isPast.day
+                            || !isValid
+                            ? "error--border"
+                            : ""}`}
         />
-        <p className={props.isEmpty.day
-                          ? "error--state"
-                          : "error--state-hidden"}>
+        <p className={isEmpty.day
+                        ? "error--state"
+                        : "error--state-hidden"}>
             This field is required
         </p>
-        <p className={!props.regexResult.day 
-                        && !props.isEmpty.day
-                        && props.isPast.day
-                        && props.isValid
-                          ? "error--state"
-                          : "error--state-hidden"}>
+        <p className={!regexResult.day 
+                        && !isEmpty.day
+                        && isPast.day
+                        && isValid
+                        ? "error--state"
+                        : "error--state-hidden"}>
             Must be a valid day
         </p>
-        <p className={!props.isPast.day
-                        && props.regexResult.day 
-                        && !props.isEmpty.day
-                        && props.isValid
-                          ? "error--state"
-                          : "error--state-hidden"}>
+        <p className={!isPast.day
+                        && regexResult.day 
+                        && !isEmpty.day
+                        && isValid
+                        ? "error--state"
+                        : "error--state-hidden"}>
             Must be in the past
         </p>
-        <p className={!props.isValid
-                        && props.isPast.day
-                        && props.regexResult.day 
-                        && !props.isEmpty.day
+        <p className={!isValid
+                        && isPast.day
+                        && regexResult.day 
+                        && !isEmpty.day
                             ? "error--state"
                             : "error--state-hidden"}>
             Must be a valid date
@@ -62,48 +65,51 @@ const Birthday = props =>
         <label 
             htmlFor="month" 
             className={`birthday--label 
-                        ${props.isEmpty.month 
-                        || !props.regexResult.month
-                        || !props.isPast.month
-                        || !props.isValid
+                        ${isEmpty.month 
+                        || !regexResult.month
+                        || !isPast.month
+                        || !isValid
                             ? "error--label"
                             : ""}`}>
             Month
         </label>
         <input 
-            type="text" 
+            type="number"
+            min="1"
+            max="12"
+            step="1" 
             id="month" 
             name="month"
             placeholder="MM" 
-            value={props.birthday.month}
-            onChange={props.handleChange}
+            value={birthday.month}
+            onChange={handleChange}
             className={`birthday--number 
-                        ${props.isEmpty.month 
-                            || !props.regexResult.month
-                            || !props.isPast.month
-                            || !props.isValid
+                        ${isEmpty.month 
+                            || !regexResult.month
+                            || !isPast.month
+                            || !isValid
                                 ? "error--border"
                                 : ""}`} 
         />
-        <p className={props.isEmpty.month
-                          ? "error--state"
-                          : "error--state-hidden"}>
+        <p className={isEmpty.month
+                        ? "error--state"
+                        : "error--state-hidden"}>
             This field is required
         </p>
-        <p className={!props.regexResult.month 
-                        && !props.isEmpty.month
-                        && props.isPast.month
-                        && props.isValid
-                          ? "error--state"
-                          : "error--state-hidden"}>
+        <p className={!regexResult.month 
+                        && !isEmpty.month
+                        && isPast.month
+                        && isValid
+                        ? "error--state"
+                        : "error--state-hidden"}>
             Must be a valid month
         </p>
-        <p className={!props.isPast.month
-                        && props.regexResult.month 
-                        && !props.isEmpty.month
-                        && props.isValid
-                          ? "error--state"
-                          : "error--state-hidden"}>
+        <p className={!isPast.month
+                        && regexResult.month 
+                        && !isEmpty.month
+                        && isValid
+                        ? "error--state"
+                        : "error--state-hidden"}>
             Must be in the past
         </p>
         </div>
@@ -112,47 +118,50 @@ const Birthday = props =>
         <label 
             htmlFor="year" 
             className={`birthday--label 
-                        ${props.isEmpty.year 
-                        || !props.regexResult.year
-                        || !props.isPast.year 
-                        || !props.isValid
+                        ${isEmpty.year 
+                        || !regexResult.year
+                        || !isPast.year 
+                        || !isValid
                             ? "error--label"
                             : ""}`}>
             Year
         </label>
         <input 
-            type="text" 
+            type="number"
+            min="1900"
+            max="2030"
+            step="1" 
             id="year" 
             name="year" 
             placeholder="YYYY"
-            value={props.birthday.year}
-            onChange={props.handleChange}
+            value={birthday.year}
+            onChange={handleChange}
             className={`birthday--number 
-                        ${props.isEmpty.year 
-                            || !props.regexResult.year
-                            || !props.isPast.year 
-                            || !props.isValid
+                        ${isEmpty.year 
+                            || !regexResult.year
+                            || !isPast.year 
+                            || !isValid
                                 ? "error--border"
                                 : ""}`} 
         />
-        <p className={props.isEmpty.year
-                          ? "error--state"
-                          : "error--state-hidden"}>
+        <p className={isEmpty.year
+                        ? "error--state"
+                        : "error--state-hidden"}>
             This field is required
         </p>
-        <p className={!props.regexResult.year 
-                        && !props.isEmpty.year
-                        && props.isPast.year
-                        && props.isValid
-                          ? "error--state"
-                          : "error--state-hidden"}>
+        <p className={!regexResult.year 
+                        && !isEmpty.year
+                        && isPast.year
+                        && isValid
+                        ? "error--state"
+                        : "error--state-hidden"}>
             Must be a valid year since 1900
         </p>
-        <p className={!props.isPast.year
-                        && !props.isEmpty.year
-                        && props.isValid
-                          ? "error--state"
-                          : "error--state-hidden"}>
+        <p className={!isPast.year
+                        && !isEmpty.year
+                        && isValid
+                        ? "error--state"
+                        : "error--state-hidden"}>
             Must be in the past
         </p>
         </div>
