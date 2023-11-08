@@ -1,6 +1,6 @@
 # Frontend Mentor - Age calculator app solution
 
-This is a solution to the [Age calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Age calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -12,7 +12,6 @@ This is a solution to the [Age calculator app challenge on Frontend Mentor](http
   - [Built with](#built-with)
   - [Continued development](#continued-development)
 - [Author](#author)
-
 
 ## Overview
 
@@ -89,8 +88,9 @@ Users should be able to:
 - React hooks
 - API
 
-
 ## Author
 
-- Website - [Zun Liang](https://zun-liang.github.io/)
+- Website - [Zun Liang](https://zunldev.com/)
+- GitHub - [@zun-liang](https://github.com/zun-liang)
 - Frontend Mentor - [@zun-liang](https://www.frontendmentor.io/profile/zun-liang)
+- freeCodeCamp - [@zun-liang](https://www.freecodecamp.org/zun-liang)
