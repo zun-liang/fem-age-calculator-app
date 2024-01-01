@@ -1,7 +1,7 @@
 {
   "name": "age-calculator-app",
   "version": "0.1.0",
-  "homepage": "https://zun-liang.github.io/age-calculator-app",
+  "homepage": "https://zun-liang.github.io/fem-age-calculator-app",
   "private": true,
   "dependencies": {
     "@react-spring/web": "^9.7.1",
